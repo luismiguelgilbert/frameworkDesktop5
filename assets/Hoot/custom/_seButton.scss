@@ -1,0 +1,13 @@
+.v-btn__content {
+  font-weight: $font-weight-bold;
+  font-size: $body-font-size;
+  font-family: $base-font;
+}
+
+.v-btn {
+  border: 1px solid;
+  border-radius: 5px;
+  &::before {
+    background-color: transparent; // lets our hover BG color show without flickering
+  }
+}

@@ -1,0 +1,50 @@
+$col-padding-offset: 12px;
+$total-columns: 12;
+$break-points: 'xs', 'sm', 'md', 'lg';
+
+.hoot {
+  &-form-card {
+    * {
+      line-height: 150%;
+    }
+    .v-card__title {
+      padding: 30px 30px 20px 30px;
+    }
+    .v-text-field {
+      margin-top: 0px;
+      padding-top: 0px;
+    }
+    .v-input--selection-controls {
+      margin-top: 12px; 
+      &.v-input--radio-group {
+        margin-top: 0px;
+      }
+      &.v-input--radio-group--column .v-input--radio-group__input>.v-label {
+        padding-bottom: 2px;
+      }
+    }
+    @for $i from 1 through $total-columns {
+      @each $j in $break-points {
+        .col-#{$j}-#{$i} {
+          padding-top: 0px;
+          padding-bottom: 15px;
+        }
+      }
+      .col-#{$i} {
+        padding-top: 0px;
+        padding-bottom: 15px;
+      }
+    }
+    .v-text-field__details, .v-messages {
+      min-height: 0px;
+    }
+    @media only screen and (max-width: $small-upper-breakpoint) {
+      .v-card__title {
+        padding: 30px 15px (20px - $col-padding-offset);
+      }
+      .v-card__text {
+        padding: 0px 15px;
+      }
+    }
+  }
+}

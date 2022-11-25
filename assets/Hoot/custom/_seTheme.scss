@@ -1,0 +1,63 @@
+#se-app, .storybook-internal #storybook-app {
+  * {
+    line-height: 150%;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 100%;
+  }
+  &.v-application .primary {
+    background-color: $primary !important;
+    border-color: $primary-border !important;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $blue-icon-hover !important;
+    }
+  }
+  &.v-application .v-text-field {
+    color: $website-gray-primary !important;
+    caret-color: $website-gray-primary !important;
+    &.v-text-field--outlined fieldset {
+      border-width: 1px;
+    }
+  }
+  &.v-application .secondary {
+    background-color: $secondary !important;
+    border-color: $secondary-border !important;
+    color: $black;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $gray !important;
+    }
+  }
+  &.v-application .alert {
+    background-color: $alert !important;
+    border-color: $alert-border !important;
+    color: $white;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $alert-button-hover !important;
+    }
+  }
+  &.v-application .error--text {
+    color: $deep-red-darkest !important;
+  }
+  &.v-application a {
+    color: $blue-secondary;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      color: $blue-secondary-darker;
+      text-decoration: underline;
+    }
+  }
+  &.v-application .text-link {
+    color: $blue-secondary; 
+      &:hover {
+        color: $blue-secondary-darker;
+        text-decoration: underline;
+    }
+  }
+}

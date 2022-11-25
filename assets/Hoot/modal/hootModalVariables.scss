@@ -1,0 +1,24 @@
+$hoot-modal-margin-value: 15px;
+$hoot-modal-margin: $hoot-modal-margin-value auto !default;
+$hoot-modal-padding-top-bottom: 15px !default;
+
+$hoot-modal-mobile-padding-left-right: 20px !default;
+$hoot-modal-padding-left-right: 30px !default;
+
+$hoot-modal-mobile-padding: $hoot-modal-padding-top-bottom $hoot-modal-mobile-padding-left-right !default;
+$hoot-modal-padding: $hoot-modal-padding-top-bottom $hoot-modal-padding-left-right !default;
+
+$hoot-modal-border-radius: 5px !default;
+$hoot-modal-box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 20%), 0 24px 38px 3px rgba(0, 0, 0, 14%), 0 9px 46px 8px rgba(0, 0, 0, 12%) !default;
+
+$hoot-modal-header-bottom-margin: 15px !default;
+$hoot-modal-header-close-size: 60px !default;
+
+$hoot-modal-content-top-bottom-padding: 30px !default;
+$hoot-modal-content-left-right-padding: 0px !default;
+
+$hoot-modal-actions-margin: 12px !default;
+$hoot-modal-actions-bottom-margin: ($hoot-modal-actions-margin -$hoot-modal-margin-value) !default;
+$hoot-modal-actions-button-margin: 10px !default;
+
+$hoot-modal-overlay-opacity: 0.30 !default;

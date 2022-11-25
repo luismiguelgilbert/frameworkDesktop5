@@ -1,0 +1,133 @@
+@import '_seExternalColorVariables.scss';
+
+// Theme
+$primary: #007DB3;
+$primary-border: #00648F;
+$secondary: #FFFFFF;
+$secondary-border: #A5A5A5;
+$alert: #EA0B0B;
+$alert-border: #B30000;
+
+// External Website Theme
+$gray-darker: #313131;
+
+//Colors
+$blue: #007DB3;
+$blue-light: #DAECF4;
+$blue-darker: #006895;
+$blue-darkest: #00648F;
+$blue-secondary: #2C6DC9;
+$blue-secondary-darker: #2357A1;
+$deep-red: #EA0B0B;
+$deep-red-darker: #D20303;
+$deep-red-darkest: #B30000;
+$green: #3EA865;
+$green-darker: #338752;
+$green-blue: #7BC7E8;
+$green-blue-darker: #497588;
+$orange: #FFB388;
+$orange-darker: #FF6610;
+$pastel-red: #FF9998;
+$pastel-red-darker: #D64A49;
+$purple: #E2ACF9;
+$purple-darker: #9659AF;
+$gray: #f5f5f5;
+$red: #F75E5E;
+$red-darker: #D84F4F;
+$teal: #7BE8DD;
+$teal-darker: #63A19B;
+$yellow: #FFE086;
+$yellow-darker: #C59B1F;
+
+//Grayscale
+$black: #1E2020;
+$gray-primary: #4F5354;
+$gray-medium: #606163;
+$gray-medium-light: #A5A5A5;
+$gray-light: #C8CED3;
+$gray-lighter: #E8E8E8;
+$gray-lightest: #f5f5f5;
+$white: #ffffff;
+
+//Icons
+$blue-icon: $blue;
+$blue-icon-hover: $blue-darker;
+$green-icon: $green;
+$green-icon-hover: $green-darker;
+$red-icon: $red;
+$red-icon-hover: $red-darker;
+
+//Buttons
+$primary-button: $blue;
+$primary-button-hover: $blue-darker;
+$primary-button-stroke: $blue-darkest;
+$secondary-button: $white;
+$secondary-button-hover: $gray-lighter;
+$secondary-button-stroke: $gray-medium-light;
+$alert-button: $deep-red;
+$alert-button-hover: $deep-red-darker;
+$alert-button-stroke: $deep-red-darkest;
+$disabled-button: $gray-lighter;
+
+//Forms
+$validation-text: $deep-red-darkest;
+
+//Pills
+$blue-pill: $green-blue;
+$blue-pill-icon: $green-blue-darker;
+$orange-pill: $orange;
+$orange-pill-icon: $orange-darker;
+$purple-pill: $purple;
+$purple-pill-icon: $purple-darker;
+$red-pill: $pastel-red;
+$red-pill-icon: $pastel-red-darker;
+$teal-pill: $teal;
+$teal-pill-icon: $teal-darker;
+$yellow-pill: $yellow;
+$yellow-pill-icon: $yellow-darker;
+
+
+$colors: (
+  blue: $blue,
+  red: $red,
+  yellow: $yellow,
+  green: $green,
+  white: $white,
+  black: $black,
+  orange: $orange,
+  purple: $purple,
+  purple-darker: $purple-darker,
+  gray: $gray,
+  gray-light: $gray-light,
+  gray-medium-light: $gray-medium-light,
+  gray-medium: $gray-medium,
+  blue-darker: $blue-darker,
+
+  website-black: $website-black,
+  website-gray-primary: $website-gray-primary,
+  website-gray-secondary: $website-gray-secondary,
+  website-gray-fill-primary: $website-gray-fill-primary,
+  website-gray-fill-secondary: $website-gray-fill-secondary,
+  website-gray-stroke: $website-gray-stroke,
+  website-gray-chip-fill: $website-gray-chip-fill,
+  website-gray-chip-icon: $website-gray-chip-icon,
+  website-button-primary: $website-button-primary,
+  website-button-hover: $website-button-hover,
+  website-button-inactive: $website-button-inactive,
+  website-button-inactive-stroke: $website-button-inactive-stroke,
+  website-green-success-fill: $website-green-success-fill,
+  website-green-validation: $website-green-validation,
+  website-green-success-stroke: $website-green-success-stroke,
+  website-red-validation-stroke:$website-red-validation-stroke,
+  website-red-validation-fill:$website-red-validation-fill,
+);
+
+@mixin color-modifiers($attribute: 'color', $prefix: '--') {
+  @each $name, $hex in $colors {
+    &#{"" + $prefix}#{"" + $name} {
+      #{$attribute}: $hex;
+    }
+  }
+}
+
+@import '_seColorUtils.scss';

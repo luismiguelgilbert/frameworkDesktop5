@@ -1,0 +1,38 @@
+.hoot-two-column-layout {
+  display: flex;
+  min-width: 100%;
+
+  @media(max-width: $mobile-upper-breakpoint) {
+    flex-direction: column;
+  }
+   @media(min-width: $mobile-upper-breakpoint) {
+    flex-direction: row;
+  }
+
+  .hoot-col-1 {
+    @media(max-width: $mobile-upper-breakpoint) {
+      min-width: 100%;
+      margin-right: 0px;
+    }
+     @media(min-width: $mobile-upper-breakpoint) {
+      min-width: calc(65% - 30px);
+      margin-right: 30px;
+      order: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .hoot-col-2 {
+    display: flex;
+    flex-direction: column;
+
+    @media(max-width: $mobile-upper-breakpoint) {
+      min-width: 100%;
+    }
+     @media(min-width: $mobile-upper-breakpoint) {
+      min-width: 35%;
+      order: 1;
+    }
+  }
+}

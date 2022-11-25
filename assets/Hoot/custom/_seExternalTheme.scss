@@ -1,0 +1,99 @@
+#se-external-app,
+.storybook-external #storybook-app {
+  $header-font: 'Roboto', Tahoma, sans-serif;
+  * {
+    box-sizing: border-box;
+    line-height: 150%;
+    font-family: $base-font;
+  }
+  h1 {
+    font-size: $h1-font-size;
+  }
+  h2 {
+    font-size: $h2-font-size;
+  }
+  h3 {
+    font-size: $h3-font-size;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font;
+    font-weight: $font-weight-normal;
+    line-height: 100%;
+  }
+  h1, h2 {
+    font-weight: $font-weight-bold;
+  }
+  p, span, h1, h2, h3, h4, h5, h6 {
+    color: $black;
+  }
+  p, ul {
+    font-size: $body-font-size;
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid $website-gray-stroke;
+  }
+  fieldset {
+    border-style: none;
+    padding: 0;
+  }
+  input[type="checkbox" i] {
+    margin: 0;
+  }
+  a {
+    color: $black;
+  }
+  a:hover {
+    color: $website-gray-primary;
+  }
+  .fa, .fas {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  &.v-application {
+    .primary {
+      background-color: $website-black !important;
+      border-color: $website-black !important;
+      color: $white !important;
+    }
+    .primary:hover,
+    .primary:active,
+    .primary:focus {
+      background-color: $website-gray-primary !important;
+    }
+    .primary--text {
+      color: $website-gray-primary !important;
+      caret-color: $website-gray-primary !important;
+      &.v-text-field--outlined fieldset {
+        border-width: 1px;
+      }
+    }
+    .error--text {
+      color: $alert-border !important;
+    }
+    .loading {
+      background-color: rgba($gray-darker, 0.4) !important;
+      border-color: none;
+      color: $white !important;
+    }
+    .loading--text {
+      color: rgba($website-gray-primary, 0.4) !important;
+      caret-color: rgba($website-gray-primary, 0.4) !important;
+      &.v-text-field--outlined fieldset {
+        border-width: 1px;
+      }
+    }
+    .v-btn {
+      &.v-size--default {
+        height: 50px;
+      }
+      .v-btn__content {
+        font-size: $h3-font-size;
+      }
+      &.v-btn--disabled {
+        background-color: $website-button-inactive !important;
+        border-color: $website-button-inactive-stroke !important;
+      }
+    }
+  }
+}

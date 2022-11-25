@@ -1,0 +1,38 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+#se-app, #se-external-app {
+  .container {
+      max-width: 1280px;
+  }
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hoot-container {
+  width: 100%;
+  padding: 12px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $hoot-container-max-width;
+  min-width: $hoot-container-min-width;
+
+  &-divider {
+    margin: 15px 0;
+    min-width: 100%;
+    border-bottom: 1px solid $gray-light;
+  }
+}

@@ -1,0 +1,118 @@
+/* THIS FILE IS DEPRECATED. Please use seInternalVariables in your sass loader and
+seInternalTheme in your main instead. */
+@import '_seInternalColorVariables.scss';
+
+// Typography
+$base-font: 'Roboto', Tahoma, sans-serif;
+$header-font: 'Bitter', Georgia, serif;
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.25rem;
+$h3-font-size: 1.125rem;
+
+$body-font-size: 1rem;
+$body-font-small: .875rem;
+$body-font-x-small: .75rem;
+
+// Sidebar EnBiggen
+$sidebar-width: 240px;
+
+// Font Colors
+$primary-text: $website-black;
+$icon-primary: $website-black;
+$icon-light: $website-gray-stroke;
+
+// Navigation
+$navigation-primary: $gray-primary;
+$navigation-secondary: $gray-medium;
+$navigation-text: $white;
+$navigation-font: $header-font;
+
+// Body
+$body-background: $website-gray-fill-secondary;
+
+// Borders
+$border-color: $website-gray-stroke;
+$border-radius: 5px;
+$button-border-radius: 3px;
+$input-border-style: 1px solid $website-gray-stroke;
+$component-border-style: 1px solid $website-gray-stroke;
+$header-bottom-border: 1px solid $website-gray-stroke;
+
+// Shadow
+$box-shadow: -1px 1px 5px 0px rgba($website-gray-stroke, .8);
+
+// Buttons
+$button-primary-color: $blue;
+$button-primary-hover: $blue-darker;
+$button-text: $white;
+
+// Padding
+$component-padding: 30px;
+
+//Font Awesome Icons
+$trash: $red;
+$preview: $blue;
+$preview-hover: darken($blue, 10%);
+$edit: $green;
+$edit-hover: darken($edit, 10%);
+$hubspot: $orange;
+$hubspot-hover: darken($hubspot, 10%);
+$key: $purple;
+$key-hover: darken($key, 10%);
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+$fa-font-family: "Font Awesome 5 Free";
+$grayMedium: $gray-medium;
+
+// Shadows
+$menu-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+// Breakpoints
+$small-upper-breakpoint: 600px;
+$mobile-upper-breakpoint: 960px;
+$medium-upper-breakpoint: 1264px;
+$large-upper-breakpoint: 1904px;
+
+$hoot-container-max-width: 1280px;
+$hoot-container-min-width: 300px;
+
+// Chips
+$paid: #72E4D8;
+$partial: #DDA3F4;
+$pending: #F8DC84;
+$refunded: #71BFE2;
+$unpaid: #F28F8F;
+$canceled: #F0A77A;
+
+:export {
+  paid: $paid;
+  partial: $partial;
+  pending: $pending;
+  refunded: $refunded;
+  unpaid: $unpaid;
+  canceled: $canceled;
+  grayMedium: $gray-medium;
+  navigationGray: $navigation-primary;
+  red: $red;
+  blue: $blue;
+  buttonPrimaryColor: $button-primary-color;
+  inputButtonGray: $gray-light;
+};
+
+@import '_seUserAgentOverrides.scss';
+@import '_seDisplayUtils.scss';
+@import '_seDisplayStyles.scss';
+@import './custom/_seDialog.scss';
+@import './custom/_seCard.scss';
+@import './custom/_seCollapse.scss';
+@import './custom/_seButton.scss';
+@import './custom/_seTheme.scss';
+@import './custom/_seExternalTheme.scss'; //This styles Storybook External Theme
+@import './layout/hootTwoColumnLayout.scss';
+@import './layout/hootTwoColumnLayoutTwo.scss';
+@import './card/hootCard.scss';
+@import './modal/hootModalVariables.scss';
+@import './timeline/hootTimeline.scss';

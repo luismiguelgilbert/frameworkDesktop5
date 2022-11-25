@@ -26,9 +26,13 @@ export default defineNuxtConfig({
     //VUETIFY:
     'vuetify/lib/styles/main.sass',
     //'mdi/css/materialdesignicons.min.css',
+
+    //HOOT
+    //'~/assets/Hoot/_seVariables.scss'
   ],
   modules: [
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/supabase'
   ],
   build: {
 		//transpile: ['primevue']
@@ -39,4 +43,15 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false,
     },
   },
+  googleFonts: {
+    families: {
+      Roboto: true,
+      'Josefin+Sans': true,
+      Lato: [100, 300],
+      Raleway: {
+        wght: [100, 400],
+        ital: [100]
+      },
+    }
+  }
 })

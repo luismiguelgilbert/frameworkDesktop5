@@ -1,0 +1,226 @@
+.hoot-timeline {
+  .hoot-large-format-message-icon {
+    font-size: 64px;
+  }
+  .hoot-large-format-message-main {
+    font-size: 20px;
+  }
+  .hoot-large-format-message-sub {
+    font-size: 16px;
+  }
+  .hoot-collapse-button {
+    justify-content: flex-start;
+    margin-right: 10px;
+  }
+  .hoot-collapse-icon {
+    margin-left: 20px;
+  }
+  .timeline-item {
+    position: relative;
+    width: 100%;
+    padding-bottom: 30px;
+    &::before {
+      display: block;
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 25px;
+      width: 1px;
+      height: 100%;
+      background-color: $gray-light;
+      content: '';
+    }
+    &:last-of-type::before {
+      display: none;
+    }
+    &.timeline-event .timeline-marker,
+    &.timeline-status .timeline-item-content {
+      padding-top: 4px;
+    }
+  }
+  &.timeline-error .timeline-input::before {
+    display: none;
+  }
+  .timeline-item-inner-wrapper {
+    display: flex;
+  }
+  .timeline-marker {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    min-width: 50px;
+  }
+  .timeline-item-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    margin-left: 15px;
+    p {
+      margin-bottom: 10px;
+    }
+  }
+  .timeline-timestamp {
+    color: $gray-primary;
+  }
+  .collapsible .timeline-timestamp {
+    width: 100%;
+  }
+
+  .timeline-comment {
+    width: calc(100% + 30px);
+    margin: 0 -15px;
+    &::before {
+      left: 40px;
+    }
+    &.internal .timeline-item-inner-wrapper {
+      border: 1px solid $gray-light;
+      border-width: 1px 0;
+      background-color: white;
+    }
+    &.external .timeline-item-inner-wrapper {
+      background-color: $gray-lightest;
+    }
+    .timeline-item-inner-wrapper {
+      position: relative;
+      padding: 15px;
+    }
+    .timeline-content,
+    .comment-owner {
+      margin-bottom: 10px;
+    }
+    .timeline-timestamp {
+      order: 3;
+    }
+    .comment-actions {
+      order: 4;
+      margin-bottom: 0;
+    }
+    .comment-owner {
+      font-weight: $font-weight-bold;
+    }
+    .timeline-content {
+      width: 100%;
+    }
+  }
+  .timeline-detail {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-height: inherit;
+    padding: 20px 0;
+    &:first-child {
+      padding-top: 10px;
+    }
+    &+.timeline-detail {
+      border-top: 1px solid $gray-light;
+    }
+  }
+  .timeline-detail-wrapper {
+    width: 100%;
+  }
+  .timeline-input {
+    width: 100%;
+    margin: 0;
+    .timeline-input-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    &::before {
+      left: 25px;
+    }
+    .timeline-item-inner-wrapper {
+      width: 100%;
+      padding: 0;
+    }
+    &.internal .timeline-item-inner-wrapper,
+    &.external .timeline-item-inner-wrapper {
+      border: 0;
+      background-color: transparent;
+    }
+    .hoot-text-field {
+      width: 100%;
+      label {
+        margin-bottom: 10px;
+      }
+      &::v-deep .input-container {
+        margin: 0;
+      }
+    }
+    .hoot-button {
+      order: 3;
+      width: 100%;
+      min-height: 50px;
+    }
+    .hoot-checkbox {
+      order: 2;
+      margin-bottom: 10px;
+    }
+  }
+  @media (min-width: $mobile-upper-breakpoint) {
+    padding: 30px;
+    .hoot-collapse-button {
+      width: auto;
+    }
+    .timeline-item-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .timeline-timestamp {
+      margin-top: 0;
+    }
+    .collapsible .timeline-timestamp {
+      width: auto;
+    }
+    .timeline-detail-wrapper {
+      order: 3;
+    }
+    .timeline-comment {
+      &.internal .timeline-item-inner-wrapper {
+        border-width: 1px;
+      }
+      .timeline-item-inner-wrapper {
+        border-radius: 5px;
+      }
+      .timeline-item-content {
+        justify-content: flex-start;
+      }
+      .comment-owner {
+        margin: 0 15px 7px 0;
+      }
+      .timeline-timestamp {
+        flex-grow: 1;
+        order: 2;
+        margin-bottom: 7px;
+      }
+      .timeline-content {
+        margin-bottom: 0;
+      }
+      .comment-actions {
+        order: 3;
+      }
+      .timeline-content {
+        order: 4;
+      }
+    }
+    .timeline-input {
+      .hoot-text-field,
+      .hoot-button {
+        width: auto;
+      }
+      .hoot-text-field {
+        flex-grow: 1;
+      }
+      .hoot-button {
+        order: 2;
+        margin-left: 10px;
+      }
+      .hoot-checkbox {
+        order: 3;
+        width: 100%;
+      }
+    }
+  }    
+}
+

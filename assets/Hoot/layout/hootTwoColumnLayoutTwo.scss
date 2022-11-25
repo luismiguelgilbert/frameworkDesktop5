@@ -1,0 +1,80 @@
+$hl2-row-divider-margin-top-bottom: 30px;
+$hl2-mobile-row-divider-margin-top-bottom: 25px;
+$hl2-col-title-margin-bottom: 15px;
+$hl2-col-margin-right: 30px;
+
+$hl2-mobile-margin-left-right: 15px;
+$hl2-tablet-margin-left-right: 30px;
+$hl2-mobile-col-margin-top-bottom: 25px;
+
+.hoot-two-col-layout-two {
+  display: flex;
+  flex-direction: column;
+  
+  @media(max-width: $mobile-upper-breakpoint) {
+    margin: $hl2-row-divider-margin-top-bottom $hl2-tablet-margin-left-right;
+    padding: 0;
+    width: auto;
+  }
+
+  @media(max-width: $small-upper-breakpoint) {
+    margin: $hl2-mobile-margin-left-right $hl2-mobile-margin-left-right;
+  }
+  
+
+  .hl2-title {
+    font-size: $h1-font-size;
+    order: 0;
+  }
+
+  .hl2-row-divider {
+    border-bottom: 1px solid $gray-light;
+    min-width: 100%;
+    margin: $hl2-row-divider-margin-top-bottom 0;
+    @media(max-width: $mobile-upper-breakpoint) {
+      margin: $hl2-mobile-row-divider-margin-top-bottom 0;
+    }
+  }
+
+  &-horizontal-section {
+    display: flex;
+    @media(max-width: $small-upper-breakpoint) {
+      flex-direction: column;
+    }
+    @media(min-width: $small-upper-breakpoint) {
+      flex-direction: row;
+    }
+    .hl2-left-col {
+      @media(max-width: $small-upper-breakpoint) {
+        min-width: 100%;
+        margin-right: 0px;
+        margin-bottom: $hl2-mobile-col-margin-top-bottom;
+      }
+      @media(min-width: $small-upper-breakpoint) {
+        min-width: calc(35% - 30px);
+        margin-right: $hl2-col-margin-right;
+        order: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      order: 0;
+      &-title {
+        font-size: $h3-font-size;
+        margin-bottom: $hl2-col-title-margin-bottom;
+      }
+      &-description {
+        font-size: $body-font-size;
+      }
+    }
+    .hl2-right-col {
+      @media(max-width: $small-upper-breakpoint) {
+        min-width: 100%;
+      }
+      @media(min-width: $small-upper-breakpoint) {
+        min-width: 65%;
+        order: 1;
+      }
+      order: 1;
+    }
+  }
+}

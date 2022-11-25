@@ -1,0 +1,16 @@
+.hoot-collapse-button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+}
+.hoot-collapse-icon {
+  transform: rotateZ(0);
+  transition: all 0.2s ease-in-out;
+  min-height: 22px;
+  align-items: center;
+  display: flex;
+}
+.collapsed .hoot-collapse-icon {
+  transform: rotateZ(180deg);
+}

@@ -1,0 +1,62 @@
+@mixin snap-upper-right() {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1020;
+}
+
+@mixin modal-position() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-direction {
+  @media (max-width: $mobile-upper-breakpoint) {
+    flex-direction: column;
+  }
+  @media (min-width: $mobile-upper-breakpoint) {
+    flex-direction: row;
+  }
+}
+
+@mixin breakpoint-rule($rule, $value, $screenSize) {
+  @if $screenSize == 'mobile' or $screenSize == 'm'{
+    @media (max-width: $mobile-upper-breakpoint) {
+      #{$rule}: $value;
+    }
+  } @else if $screenSize == 'tablet' or $screenSize == 't'{
+    @media (min-width: $mobile-upper-breakpoint) {
+      #{$rule}: $value;
+    }
+  } @else {
+    @media (min-width: $medium-upper-breakpoint) {
+      #{$rule}: $value;
+    }
+  }
+}
+
+@mixin focusBorder($borderColor) {
+  border: 1px solid transparent;
+  // ADA compliance workaround when removing outline
+  box-shadow: inset 0 0 0 1px $borderColor;
+  // iOS override to show the box-shadow
+  -webkit-appearance: none;
+  outline: 0;
+}
+
+@mixin inputBorder($borderColor) {
+  border: 1px solid $borderColor;
+  border-radius: 5px;
+}
+
+@mixin customGridClasses($tag, $cols) {
+  @for $i from 1 through $cols {
+    .#{$tag}-#{$i} {
+      grid-column: span #{$i};
+      max-width: 100%;
+    }
+  }
+}

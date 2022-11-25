@@ -1,0 +1,34 @@
+// Overrides for browser default user-agents
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font;
+  font-weight: $font-weight-normal;
+}
+
+p, span {
+  font-family: $base-font;
+}
+
+p, span, h1, h2, h3, h4, h5, h6 {
+  color: $black;
+}
+
+button, input, optgroup, select, textarea, button {
+  font-size: inherit;
+}
+
