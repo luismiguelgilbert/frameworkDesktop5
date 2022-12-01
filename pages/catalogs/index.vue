@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  definePageMeta({
+    middleware: 'auth'
+  });
   const modulesList = [
     { id: 0, icon: 'fas fa-home', route: '/home', label: 'SOCIOS', comments: 'Administación de Compañías' },
     { id: 1, icon: 'fas fa-cog', route: '/system', label: 'ITEMS', comments: 'Administación de Compañías' },
@@ -11,6 +14,7 @@
 <template>
   <ModuleMenu
     module-title="Catálogos"
+    module-icon="fas fa-database"
     :modules-list="modulesList"
     />
 </template>

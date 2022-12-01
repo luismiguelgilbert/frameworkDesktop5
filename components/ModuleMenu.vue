@@ -1,12 +1,9 @@
 <script setup lang="ts">
   import { MenuItemInterface } from '@/typings/SystemInterfaces'
 
-  definePageMeta({
-    middleware: 'auth'
-  });
-
   defineProps({
     moduleTitle: { type: String, required: true },
+    moduleIcon: { type: String, required: true },
     modulesList: { type: Array<MenuItemInterface>, required: true }
   })
 
@@ -21,7 +18,9 @@
 
 <template>
   <div class="px-4 sm:px-6 lg:px-8 lg:my-4" style="width: 100%;">
-    <h1>{{moduleTitle}}</h1>
+    <div class="d-inline-flex align-center">
+      <v-btn :prepend-icon="moduleIcon" variant="text" @click="navigateTo('/system')" class="mr-1">{{moduleTitle}}</v-btn>
+    </div>
     <hr />
     <HootGridLayout class="my-4">
       <template #content="gridInfo">
@@ -46,3 +45,8 @@
     </HootGridLayout>
   </div>
 </template>
+<style scoped>
+.v-btn {
+  text-transform:none !important;
+}
+</style>

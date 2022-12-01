@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  definePageMeta({
+    middleware: 'auth'
+  });
   const modulesList = [
     { id: 0, icon: 'fas fa-home', route: '/home', label: 'PUNTOS DE CONTROL', comments: 'Administación de Compañías' },
     { id: 1, icon: 'fas fa-cog', route: '/system', label: 'VEHÍCULOS', comments: 'Administación de Compañías' },
@@ -10,7 +13,8 @@
 </script>
 <template>
   <ModuleMenu
-    module-title="Catálogos"
+    module-title="Bitácora"
+    module-icon="fas fa-shield-halved"
     :modules-list="modulesList"
     />
 </template>
