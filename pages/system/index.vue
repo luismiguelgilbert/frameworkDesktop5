@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  definePageMeta({
-    middleware: 'auth'
-  });
+  definePageMeta({ middleware: 'auth' });
   const modulesList = [
     { id: 0, icon: 'fas fa-users', route: '/system/users', label: 'Usuarios', comments: 'Administación de Usuarios' },
     { id: 1, icon: 'fas fa-cog', route: '/system/roles', label: 'Roles', comments: 'Administación de Compañías' },

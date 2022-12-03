@@ -14,11 +14,6 @@
     <ModuleBreadcrumb
       :module-items="moduleItems"
       />
-    <!--<div class="d-inline-flex align-center">
-      <v-btn prepend-icon="fas fa-cog" variant="text" @click="navigateTo('/system')" class="mr-1">Sistema</v-btn>
-      /
-      <v-btn prepend-icon="fas fa-users" variant="text" class="mx-1">Usuarios</v-btn>
-    </div>-->
     <hr />
     <div>
       <v-list>

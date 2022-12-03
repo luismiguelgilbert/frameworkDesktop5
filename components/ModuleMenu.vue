@@ -7,12 +7,8 @@
     modulesList: { type: Array<MenuItemInterface>, required: true }
   })
 
-  const client = useSupabaseClient()
-  const user = useSupabaseUser()
-
   const openModule = (menuItem: MenuItemInterface) => {
-    navigateTo(menuItem.route)
-    // navigateTo('/register')
+    return navigateTo(menuItem.route)
   }
 </script>
 

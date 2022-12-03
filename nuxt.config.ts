@@ -1,5 +1,12 @@
+import { defineNuxtConfig } from "nuxt/config"
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      SUPABASE_URL: process.env.SUPABASE_URL,
+      SUPABASE_KEY: process.env.SUPABASE_KEY,
+    },
+  },
   css: [
     //'primevue/resources/themes/tailwind-light/theme.css',
     //'primevue/resources/themes/bootstrap4-light-blue/theme.css',
@@ -32,7 +39,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     '@nuxtjs/google-fonts',
-    '@nuxtjs/supabase'
+    //'@nuxtjs/supabase'
   ],
   build: {
 		//transpile: ['primevue']

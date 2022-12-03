@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  definePageMeta({
+  /*definePageMeta({
     middleware: 'auth'
-  });
+  });*/
   const modulesList = [
     { id: 0, icon: 'fas fa-home', route: '/home', label: 'PUNTOS DE CONTROL', comments: 'Administación de Compañías' },
     { id: 1, icon: 'fas fa-cog', route: '/system', label: 'VEHÍCULOS', comments: 'Administación de Compañías' },

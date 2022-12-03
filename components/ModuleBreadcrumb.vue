@@ -1,16 +1,8 @@
 <script setup lang="ts">
   import { MenuItemInterface } from '@/typings/SystemInterfaces'
-
   defineProps({
     moduleItems: { type: Array<MenuItemInterface>, required: true },
-    // moduleIcon: { type: String, required: true },
-    // modulesList: { type: Array<MenuItemInterface>, required: true }
   })
-
-  /*const openModule = (menuItem: MenuItemInterface) => {
-    navigateTo(menuItem.route)
-    // navigateTo('/register')
-  }*/
 </script>
 <template>
   <div>
