@@ -1,8 +1,6 @@
 <script setup lang="ts">
   import { useMediaQuery } from '@vueuse/core'
-  //const router = useRouter();
-  //const { signIn, user, isLoggedIn } = useAuth();
-  const { signIn, isLoggedIn } = useAuth();
+  const { signIn, isLoggedIn, user } = useAuth();
   
   const email = ref('luismiguelgilbert@gmail.com');
   const password = ref('mypassword.2020');
@@ -32,13 +30,25 @@
       isLoading.value = false;
       return navigateTo('/');
     } else{
-      await signIn(email.value, password.value);
-      isLoading.value = false;
-      if(isLoggedIn()){
-        return navigateTo('/');
+      try{
+        await signIn(email.value, password.value);
+        isLoading.value = false;
+        if(isLoggedIn()){
+          return navigateTo('/');
+        }
+      }catch(error){
+        errorMessage.value = error.message;
+        isLoading.value = false;
+        showingError.value = true;
       }
     }
   }
+
+  watch(user, () => {
+    if(isLoggedIn()){
+      navigateTo('/home');
+    }
+  });
   
 </script>
 
