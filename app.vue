@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import UserCompanies from '@/components/App/UserCompanies.vue'
+  import UserSession from '@/components/App/UserSession.vue'
   import { MenuItemInterface } from '@/typings/SystemInterfaces'
 
   const router = useRouter();
@@ -6,7 +8,6 @@
 
   const leftSideBar = ref(true);
   const isLoading = ref(false);
-
 
   const showAppHeader = computed(() => {
     return !router.currentRoute.value.fullPath.startsWith('/login')
@@ -31,24 +32,25 @@
     { id: 4, icon: 'fas fa-fish', route: '/ens', label: 'ENS', comments: 'pendiente' },
   ]
 
+  onMounted(() => {
+    console.log('onMounted');
+    document.body.classList.add('bg-white');
+  })
+
 </script>
 
 <template>
-  <v-layout ref="app" style="z-index: 0">
+  <v-layout ref="app" style="z-index: 0;">
+    <!--v-app-bar  style="color: #201c54;" elevation="5"-->
     <v-app-bar
       v-if="showAppHeader"
-      style="color: #201c54;"
-      prominent
-      elevation="5">
+      :border="false"
+      color="white"
+      >
       <v-btn variant="text" icon="fas fa-bars" class="bitt-toolbar" @click.stop="leftSideBar = !leftSideBar"></v-btn>
-      <h2 class="pl-2 d-none d-sm-flex">Framework</h2>
+      <UserCompanies />
       <v-spacer></v-spacer>
-      <div class="d-inline-flex align-center">
-        <h5>{{user?.email}}</h5>
-        <v-avatar style="color: #201c54;">
-          <v-icon>fas fa-user-circle</v-icon>
-        </v-avatar>
-      </div>
+      <UserSession />
     </v-app-bar>
     <v-navigation-drawer
       v-if="showAppHeader"
@@ -57,7 +59,7 @@
       permanent
       left
       rail
-      color="primary"        
+      color="primary"
       >
       <v-list>
         <v-list-item
@@ -87,7 +89,8 @@
       </v-list>
       </template>
     </v-navigation-drawer>
-    <v-main>
+    <v-main style="height: calc(100vh); background-color: #eff2f6; overflow-y: scroll;">
+      {{router.currentRoute.value.path}}
       <NuxtPage />
     </v-main>
     <v-overlay 
@@ -101,3 +104,10 @@
     </v-overlay>
   </v-layout>
 </template>
+
+<style scoped>
+/*.bg-white {
+  color: #eff2f6;
+  
+}*/
+</style>

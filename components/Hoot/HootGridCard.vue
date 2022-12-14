@@ -1,5 +1,13 @@
+<script setup lang="ts">
+  const hover = ref(false);
+</script>
+
 <template>
-  <div class="grid-item">
+  <div
+  class="grid-item"
+    @mouseover="(hover = true)"
+    @mouseleave="(hover = false)"
+    :class="{ active: hover}">
     <slot name="content"></slot>
   </div>
 </template>
@@ -70,6 +78,10 @@ $grid-cols: 12;
       max-width: 100%;
     }
   }
+}
+
+.hover {
+  background-color: $gray-primary;
 }
 
 </style>

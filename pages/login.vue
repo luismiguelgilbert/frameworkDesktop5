@@ -64,7 +64,7 @@
       <v-toolbar
         :elevation="5"
         class="bg-primary">
-        <v-btn icon="fas fa-door-open"></v-btn>
+        <v-icon icon="fas fa-door-open" size="2rem" color="white" class="mx-5"></v-icon>
         <h1 class="px-2">Bienvenido</h1>
         <v-spacer></v-spacer>
       </v-toolbar>

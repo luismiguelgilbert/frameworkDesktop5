@@ -7,8 +7,8 @@ export default defineNuxtPlugin(nuxtApp => {
   const myCustomLightTheme: ThemeDefinition = {
     dark: false,
     colors: {
-      background: '#FFFFFF',
-      surface: '#FFFFFF',
+      background: '#f0f2f7', //f0f2f7  //FFFFFF
+      surface: '#f0f2f7',
       primary: '#6E6AF0',//42a5f5 //#6200EE
       'primary-darken-1': '#3700B3',
       secondary: '#03DAC6',

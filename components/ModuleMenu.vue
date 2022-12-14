@@ -7,6 +7,8 @@
     modulesList: { type: Array<MenuItemInterface>, required: true }
   })
 
+  const hover = ref(-1);
+  
   const openModule = (menuItem: MenuItemInterface) => {
     return navigateTo(menuItem.route)
   }
@@ -30,9 +32,9 @@
             <v-list-item
               :value="menuItem.id">
               <template v-slot:prepend>
-                <v-icon :icon="menuItem.icon" size="4rem"></v-icon>
+                <v-icon :icon="menuItem.icon" size="4rem" color="primary"></v-icon>
               </template>
-              <v-list-item-title v-text="menuItem.label" class="text-h4 py-4 "></v-list-item-title>
+              <v-list-item-title v-text="menuItem.label" class="text-h4 py-4 font-weight-black"></v-list-item-title>
               <v-list-item-subtitle v-text="menuItem.comments" class="text-h6 pb-4"></v-list-item-subtitle>
             </v-list-item>
           </template>
@@ -44,5 +46,19 @@
 <style scoped>
 .v-btn {
   text-transform:none !important;
+}
+.active {
+  background: #d8d9fc;
+
+  /* background: #f0f2f7;
+  background: #6E6AF0;
+  background: #3700B3;
+  background: #03DAC6;
+  background: #018786;
+  background: #B00020;
+  background: #2196F3;
+  background: #4CAF50;
+  background: #FB8C00;*/
+
 }
 </style>
