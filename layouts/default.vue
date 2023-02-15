@@ -35,6 +35,10 @@ const changeTheme = () => {
   theme.global.name.value = theme.global.current.value.dark ? 'themeLight' : 'themeDark'
 }
 
+const isMobile = computed(() => {
+  return useMediaQuery('(max-width: 1024px)');
+}) 
+
 watchEffect(() => {
   if (!user.value) {
     return navigateTo('/login')
@@ -48,9 +52,22 @@ definePageMeta({
 
 <template>
   <v-card>
-    <v-layout>
+    <v-app>
+      
+      <v-app-bar 
+        v-if="isMobile.value"
+        title="Framework">
+        <v-btn
+          size="small"
+          flat
+          :color="isDarkEnabled ? 'grey-darken-3' : 'grey-darken-1'"
+          icon="fas fa-bars"
+          @click="drawer = !drawer">
+        </v-btn>
+      </v-app-bar>
+
       <v-navigation-drawer
-        permanent
+        :permanent="!isMobile.value"
         floating
         v-model="drawer">
 
@@ -75,7 +92,7 @@ definePageMeta({
           
         </v-card>
 
-        <v-text-field
+        <!--<v-text-field
           class="ma-2"
           density="compact"
           variant="solo"
@@ -83,11 +100,12 @@ definePageMeta({
           append-inner-icon="fas fa-search"
           single-line
           hide-details>
-        </v-text-field>
+        </v-text-field>-->
 
+      
         <v-list
           class="overflow-y-auto"
-          height="calc(100vh - 168px)">
+          :height="`calc(100vh - ${isMobile.value ? 176 : 112}px)`">
 
           <v-list-item
             active-color="primary"
@@ -96,17 +114,18 @@ definePageMeta({
             <template v-slot:prepend>
               <v-icon class="mr-3" size="small" icon="fas fa-home"></v-icon>
             </template>
-            <v-list-item-title class="text-subtitle-2" v-text="'Inicio'"></v-list-item-title>
+            <v-list-item-title class="font-weight-black" v-text="'Inicio'"></v-list-item-title>
             <v-tooltip
               activator="parent"
               location="end">
               Inicio
             </v-tooltip>
           </v-list-item>
+          <v-divider></v-divider>
 
           <div
             v-for="item, index in rootMenuOptions">
-            <v-list-subheader>{{ item.name_es }}</v-list-subheader>
+            <v-list-subheader class="font-weight-black">{{ item.name_es }}</v-list-subheader>
               <v-list-item
                 v-for="(subItem, i) in systemStore.menuOptions?.filter(x => x.parent === item.id)"
                 :key="`${subItem}-${i}`"
@@ -124,7 +143,7 @@ definePageMeta({
                   {{ item.name_es }} - {{ subItem.name_es }}
                 </v-tooltip>
               </v-list-item>
-              <v-divider v-if="rootMenuOptions && (index + 1) < rootMenuOptions?.length" class="my-5"></v-divider>
+              <v-divider v-if="rootMenuOptions && (index + 1) < rootMenuOptions?.length" class="my-3"></v-divider>
           </div>
           <br/>
         </v-list>
@@ -140,16 +159,22 @@ definePageMeta({
         </v-btn>
       </v-navigation-drawer>
 
+      
+
       <v-main
         class="p-5"
         :class="darkBgColor"
         style="height: calc(100vh); overflow-y: scroll;">
         <div class="pa-10">
+          <div >
+            {{ isMobile }}
+          </div>
           <NuxtPage
             @changetheme="changeTheme" />
         </div>
       </v-main>
-    </v-layout>
+
+    </v-app>
   </v-card>
 </template>
 
