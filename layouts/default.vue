@@ -166,9 +166,6 @@ definePageMeta({
         :class="darkBgColor"
         style="height: calc(100vh); overflow-y: scroll;">
         <div class="pa-10">
-          <div >
-            {{ isMobile }}
-          </div>
           <NuxtPage
             @changetheme="changeTheme" />
         </div>
