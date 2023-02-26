@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+const currentStep = ref(0)
 const var_cifras = ref(0)
 const var_cifras_numero = ref('')
 const var_periodo = ref(0) //30,45,90, 180, o el número de días acordado en el que se ejecutará el pago
@@ -12,63 +13,176 @@ const var_fecha = ref('')
 definePageMeta({
   layout: 'default'
 })
+
+const isMobile = computed(() => {
+  return useMediaQuery('(max-width: 1024px)');
+}) 
+
 </script>
 <template>
   <h1>PAGARÉ</h1>
-
     <v-row>
-      <v-col cols="3">
+      <v-col cols="12" md="4" lg="3">
         <v-card
-          class="mx-auto"
           title="Variables">
           <v-divider></v-divider>
-          <v-container>
+          <v-container
+            v-if="!isMobile.value">
             <v-text-field
               v-model="var_cifras"
+              class="mb-6"
               type="number"
               color="primary"
               label="Monto del Pagaré"
-              variant="underlined" />
+              variant="underlined"
+              hide-details />
             <v-text-field
               v-model="var_periodo"
+              class="mb-6"
               type="number"
               color="primary"
               label="Días de Plazo"
-              variant="underlined" />
+              variant="underlined"
+              hide-details />
             <v-text-field
               v-model="var_cobrador"
+              class="mb-6"
               type="text"
               color="primary"
               label="Nombre del Cobrador"
-              variant="underlined" />
+              variant="underlined"
+              hide-details />
             <v-text-field
               v-model="var_porcentaje_numero"
+              class="mb-6"
               type="number"
               color="primary"
               label="Porcentaje de Interés"
-              variant="underlined" />
+              variant="underlined"
+              hide-details />
             <v-text-field
               v-model="var_acreedor"
+              class="mb-6"
               type="text"
               color="primary"
               label="Nombre del Acreedor"
-              variant="underlined" />
+              variant="underlined"
+              hide-details />
             <v-text-field
               v-model="var_ciudad"
+              class="mb-6"
               type="text"
               color="primary"
               label="Ciudad"
-              variant="underlined" />
+              variant="underlined"
+              hide-details />
             <v-text-field
               v-model="var_fecha"
+              class="mb-6"
               type="text"
               color="primary"
               label="Fecha"
-              variant="underlined" />
+              variant="underlined"
+              hide-details />
           </v-container>
+          <v-tabs
+            v-if="isMobile.value"
+            v-model="currentStep"
+            bg-color="primary">
+            <v-tab :value="1">Monto del Pagaré (1/7)</v-tab>
+            <v-tab :value="2">Días de Plazo (2/7)</v-tab>
+            <v-tab :value="3">Nombre del Cobrador (3/7)</v-tab>
+            <v-tab :value="4">Porcentaje de Interés (4/7)</v-tab>
+            <v-tab :value="5">Nombre del Acreedor (5/7)</v-tab>
+            <v-tab :value="6">Ciudad (6/7)</v-tab>
+            <v-tab :value="7">Fecha (7/7)</v-tab>
+          </v-tabs>
+          <v-window
+            v-if="isMobile.value"
+            v-model="currentStep">
+            <v-window-item :value="1">
+              <v-text-field
+                v-model="var_cifras"
+                class="my-5 mx-2"
+                type="number"
+                color="primary"
+                label="Monto del Pagaré"
+                variant="outlined"
+                hide-details />
+            </v-window-item>
+            <v-window-item :value="2">
+              <v-text-field
+                v-model="var_periodo"
+                class="my-5 mx-2"
+                type="number"
+                color="primary"
+                label="Días de Plazo"
+                variant="outlined"
+                hide-details />
+            </v-window-item>
+            <v-window-item :value="3">
+              <v-text-field
+                v-model="var_cobrador"
+                class="my-5 mx-2"
+                type="text"
+                color="primary"
+                label="Nombre del Cobrador"
+                variant="outlined"
+                hide-details />
+            </v-window-item>
+            <v-window-item :value="4">
+              <v-text-field
+                v-model="var_porcentaje_numero"
+                class="my-5 mx-2"
+                type="number"
+                color="primary"
+                label="Porcentaje de Interés"
+                variant="outlined"
+                hide-details />
+            </v-window-item>
+            <v-window-item :value="5">
+              <v-text-field
+                v-model="var_acreedor"
+                class="my-5 mx-2"
+                type="text"
+                color="primary"
+                label="Nombre del Acreedor"
+                variant="outlined"
+                hide-details />
+            </v-window-item>
+            <v-window-item :value="6">
+              <v-text-field
+                v-model="var_ciudad"
+                class="my-5 mx-2"
+                type="text"
+                color="primary"
+                label="Ciudad"
+                variant="outlined"
+                hide-details />
+            </v-window-item>
+            <v-window-item :value="7">
+              <v-text-field
+                v-model="var_fecha"
+                class="my-5 mx-2"
+                type="text"
+                color="primary"
+                label="Fecha"
+                variant="outlined"
+                hide-details />
+            </v-window-item>
+          </v-window>
+          <v-pagination
+            v-if="isMobile.value"
+            v-model="currentStep"
+            :length="7"
+            :total-visible="1"
+            prev-icon="far fa-circle-left"
+            next-icon="far fa-circle-right"
+            rounded="circle">
+          </v-pagination>
         </v-card>
       </v-col>
-      <v-col cols="9">
+      <v-col cols="12" md="8" lg="9">
         <v-card
           title="PAGARÉ">
           <v-divider></v-divider>
@@ -105,3 +219,10 @@ definePageMeta({
       </v-col>
     </v-row>
 </template>
+
+<style scoped>
+.v-btn {
+  text-transform:none !important;
+  font-weight: 700 !important;
+}
+</style>

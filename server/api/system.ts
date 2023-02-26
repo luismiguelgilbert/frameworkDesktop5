@@ -1,5 +1,5 @@
 import { serverSupabaseUser } from "#supabase/server";
-import { PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client'
 import { MenuOption } from "~~/typings/System";
 
 const prisma = new PrismaClient();
@@ -15,18 +15,18 @@ export default defineEventHandler( async (event) => {
     });
     sendError(event, error, false);
   }
-
+  
   try{
     const data = await prisma.$queryRaw`
       select
-      id, parent, position, link, name_es, icon, comment_es
-      from sys_links
-      /*inner join (
-          select -1 as v,  pg_sleep(.3) as temp
-      )t on id <> v*/
-      order by parent, position
+      d.id, d.parent, d.position, d.link, d.name_es, d.icon, d.comment_es
+      from sys_profiles_users a
+      inner join sys_profiles b on a.sys_profile_id = b.id
+      inner join sys_profiles_links c on c.sys_profile_id = b.id
+      inner join sys_links d on c.sys_link_id = d.id
+      ${Prisma.raw(`where a.user_id = '${userSession?.id}'`)}
+      order by d.position
     `;
-    //const newResults: MenuOption[] = data as MenuOption[];
     return data as MenuOption[];
   }catch(err) {
     console.error(`Error at ${event.path}. ${err}`);
