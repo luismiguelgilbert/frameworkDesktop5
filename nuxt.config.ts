@@ -4,6 +4,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 */
 export default defineNuxtConfig({
+  runtimeConfig: {
+    version: '0.0.1',
+    // The private keys which are only available within server-side
+    // apiSecret: "123",
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      TINYMCE_APIKEY: process.env.TINYMCE_APIKEY || "default_api_url",
+    }
+  },
   css: [
     '@fortawesome/fontawesome-free/css/fontawesome.css',
     '@fortawesome/fontawesome-free/css/solid.css',
@@ -18,9 +27,6 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false
     },
-  },
-  runtimeConfig: {
-    version: '0.0.1'
   },
   modules: [
     '@nuxtjs/supabase',

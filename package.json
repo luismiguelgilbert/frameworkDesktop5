@@ -21,6 +21,7 @@
     "@css-render/vue3-ssr": "^0.15.12",
     "@pinia/nuxt": "^0.4.6",
     "@prisma/client": "^4.9.0",
+    "@tinymce/tinymce-vue": "^5.0.1",
     "pinia": "^2.0.30",
     "sass": "^1.58.0",
     "vuetify": "^3.1.3",
