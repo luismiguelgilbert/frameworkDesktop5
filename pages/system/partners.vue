@@ -104,7 +104,6 @@ const saveConfig = () =>  {
             'searchreplace wordcount visualblocks visualchars code fullscreen',
             'template paste textcolor colorpicker textpattern imagetools toc help emoticons hr codesample'],
       -->
-      config.public {{ config.public.TINYMCE_APIKEY }}
       <Editor
         v-model="content"
         :api-key="config.public.TINYMCE_APIKEY"
