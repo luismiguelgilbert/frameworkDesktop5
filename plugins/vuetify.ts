@@ -7,11 +7,12 @@ import 'assets/main.scss'
 const themeLight: ThemeDefinition = {
   dark: false,
   colors: {
-    primary: "#6100ee",
+    primary: "#10172a",//#6100ee
     secondary: "#4d4d4d",
     success: "#25c760",
     warning: "#ffc82e",
     error: "#ff4c29",
+    background: "#f1f5f9",//#f5f5f5
   },
 };
 
@@ -37,7 +38,8 @@ export default defineNuxtPlugin(nuxtApp => {
     theme: {
       themes: {
         themeLight, themeDark
-      }
+      },
+      defaultTheme: 'themeLight'
     }
   })
 

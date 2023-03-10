@@ -25,6 +25,7 @@ const userLogout = async () => {
 }
 
 const drawer = ref(true)
+const menuItemClicked = ref(0)
 const isDarkEnabled = ref(theme.global.current.value.dark);
 const darkBgColor = computed(() => {
   return isDarkEnabled.value ? 'bg-grey-darken-3' : 'bg-blue-grey-lighten-5'
@@ -94,7 +95,7 @@ definePageMeta({
         <v-list
           class="overflow-y-auto"
           :height="`calc(100vh - ${isMobile.value ? 176 : 112}px)`"
-          density="compact"
+          density="comfortable"
           nav>
 
           <v-list-item
@@ -102,11 +103,20 @@ definePageMeta({
             class="full-width"
             active-color="primary"
             to="/"
-            nav>
+            nav
+            :active="menuItemClicked===0"
+            active-class="bg-primary"
+            @click="menuItemClicked=0">
             <template v-slot:prepend>
-              <v-icon class="mr-3" size="small" icon="fas fa-home"></v-icon>
+              <v-icon 
+                class="ml-2 mr-3" size="small" icon="fas fa-home"
+                :class="menuItemClicked===0 ? 'text-white' : ''"></v-icon>
             </template>
-            <v-list-item-title v-text="'Inicio'"></v-list-item-title>
+            <v-list-item-title 
+              class="text-subtitle-2"
+              :class="menuItemClicked===0 ? 'font-weight-black text-white' : ''"
+              v-text="'Inicio'">
+            </v-list-item-title>
             <v-tooltip
               activator="parent"
               location="end">
@@ -114,7 +124,6 @@ definePageMeta({
             </v-tooltip>
           </v-list-item>
           <v-divider></v-divider>
-
           <div
             v-for="item, index in rootMenuOptions">
             <v-list-subheader class="text-subtitle-2">{{ item.name_es.toUpperCase() }}</v-list-subheader>
@@ -123,20 +132,25 @@ definePageMeta({
               :key="`${item.name_es}-${subItem}-${i}`"
               :value="`${item.name_es}-${subItem}-${i}`"
               color="primary"
-              active-class="bg-primary text-white"
+              active-class="bg-primary"
               nav
+              :active="menuItemClicked===subItem"
+              @click="menuItemClicked=subItem"
               :to="subItem.link">
               <template v-slot:prepend>
-                <v-icon class="mr-3" size="small" :icon="subItem.icon"></v-icon>
+                <i
+                  class="ml-2 mr-3" size="small" :icon="subItem.icon"
+                  :class="menuItemClicked===subItem ? `text-white ${subItem.icon}` : subItem.icon"></i>
               </template>
               <v-list-item-title
                 class="text-subtitle-2"
+                :class="menuItemClicked===subItem ? 'font-weight-black text-white' : ''"
                 v-text="`${subItem.name_es}`"></v-list-item-title>
-              <v-tooltip
+              <!--<v-tooltip
                 activator="parent"
                 location="end">
                 {{ item.name_es }} - {{ subItem.name_es }}
-              </v-tooltip>
+              </v-tooltip>-->
             </v-list-item>
             <v-divider v-if="rootMenuOptions && (index + 1) < rootMenuOptions?.length" class="my-3"></v-divider>
           </div>
@@ -159,7 +173,7 @@ definePageMeta({
       <v-main
         class="p-5"
         :class="darkBgColor"
-        style="height: calc(100vh); overflow-y: scroll;">
+        style="height: calc(100vh);">
         <div class="px-5">
           <NuxtPage
             @changetheme="changeTheme" />
@@ -174,7 +188,10 @@ definePageMeta({
 .v-btn {
   text-transform:none !important;
 }
-#app {
+/*.bg-primary {
+  font
+};*/
+/*#app {
   background: #FFFFFF;
-}
+}*/
 </style>

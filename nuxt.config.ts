@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-free/css/regular.css',
     '@fortawesome/fontawesome-free/css/brands.css',
     'vuetify/lib/styles/main.sass',
+    '@/layouts/global.css',
   ],
   build: {
     transpile: ['vuetify'],
@@ -30,20 +31,22 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/supabase',
-    '@nuxtjs/google-fonts',
+    
     '@pinia/nuxt',
     '@vueuse/nuxt'
   ],
-  googleFonts: {
+  /*'@nuxtjs/google-fonts',*/
+  /*googleFonts: {
     prefetch: true,
     download: true,
     display: 'swap',
     inject: true,
     families: {
       //Inter: true
-      Inter: [500, 600, 700, 800, 900]
+      Inter: [500, 600, 700, 800, 900],
+      sans
     }
-  },
+  },*/
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY
